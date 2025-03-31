@@ -1,5 +1,0 @@
-# generated from catkin/cmake/template/order_packages.context.py.in
-source_root_dir = '/home/autonav/Desktop/frame/src'
-whitelisted_packages = ''.split(';') if '' != '' else []
-blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/home/autonav/Desktop/frame/devel;/home/autonav/Morai_2/devel;/home/autonav/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/home/autonav/Desktop/frame/devel;/home/autonav/Morai_2/devel;/home/autonav/catkin_ws/devel;/opt/ros/noetic' != '' else []

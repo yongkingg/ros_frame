@@ -1,8 +1,0 @@
-prefix=/home/autonav/Desktop/frame/install
-
-Name: Lidar
-Description: Description of Lidar
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

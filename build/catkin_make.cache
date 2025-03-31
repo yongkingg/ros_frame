@@ -1,2 +1,0 @@
-Camera:GNSS:Lidar:Main:Msg:morai_msgs
--DCATKIN_DEVEL_PREFIX=/home/autonav/Desktop/frame/devel -DCMAKE_INSTALL_PREFIX=/home/autonav/Desktop/frame/install -G Unix Makefiles

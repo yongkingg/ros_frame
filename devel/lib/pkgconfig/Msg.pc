@@ -1,8 +1,0 @@
-prefix=/home/autonav/Desktop/frame/devel
-
-Name: Msg
-Description: Description of Msg
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: std_msgs geometry_msgs message_runtime
