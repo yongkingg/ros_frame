@@ -67,7 +67,7 @@ include morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_VehicleCo
 include morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_VehicleCollisionData.dir/progress.make
 
 morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_VehicleCollisionData:
-	cd /home/autonav/Desktop/frame/build/morai_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py morai_msgs /home/autonav/Desktop/frame/src/morai_msgs/msg/VehicleCollisionData.msg morai_msgs/ObjectStatus:std_msgs/Header:geometry_msgs/Vector3:morai_msgs/VehicleCollision
+	cd /home/autonav/Desktop/frame/build/morai_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py morai_msgs /home/autonav/Desktop/frame/src/morai_msgs/msg/VehicleCollisionData.msg morai_msgs/ObjectStatus:morai_msgs/VehicleCollision:geometry_msgs/Vector3:std_msgs/Header
 
 _morai_msgs_generate_messages_check_deps_VehicleCollisionData: morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_VehicleCollisionData
 _morai_msgs_generate_messages_check_deps_VehicleCollisionData: morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_VehicleCollisionData.dir/build.make

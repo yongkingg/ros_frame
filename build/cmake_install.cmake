@@ -136,8 +136,12 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/autonav/Desktop/frame/build/gtest/cmake_install.cmake")
+  include("/home/autonav/Desktop/frame/build/Camera/cmake_install.cmake")
+  include("/home/autonav/Desktop/frame/build/Lidar/cmake_install.cmake")
+  include("/home/autonav/Desktop/frame/build/Msg/cmake_install.cmake")
   include("/home/autonav/Desktop/frame/build/morai_msgs/cmake_install.cmake")
-  include("/home/autonav/Desktop/frame/build/package/cmake_install.cmake")
+  include("/home/autonav/Desktop/frame/build/GNSS/cmake_install.cmake")
+  include("/home/autonav/Desktop/frame/build/Main/cmake_install.cmake")
 
 endif()
 

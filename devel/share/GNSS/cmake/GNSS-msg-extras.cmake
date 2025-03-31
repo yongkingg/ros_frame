@@ -1,0 +1,2 @@
+set(GNSS_MESSAGE_FILES "")
+set(GNSS_SERVICE_FILES "")

@@ -1,0 +1,8 @@
+prefix=/home/autonav/Desktop/frame/install
+
+Name: Main
+Description: Description of Main
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs Msg morai_msgs

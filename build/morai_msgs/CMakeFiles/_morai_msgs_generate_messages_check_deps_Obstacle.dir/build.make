@@ -67,7 +67,7 @@ include morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_Obstacle.
 include morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_Obstacle.dir/progress.make
 
 morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_Obstacle:
-	cd /home/autonav/Desktop/frame/build/morai_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py morai_msgs /home/autonav/Desktop/frame/src/morai_msgs/msg/Obstacle.msg geometry_msgs/Quaternion:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Point
+	cd /home/autonav/Desktop/frame/build/morai_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py morai_msgs /home/autonav/Desktop/frame/src/morai_msgs/msg/Obstacle.msg geometry_msgs/Point:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion
 
 _morai_msgs_generate_messages_check_deps_Obstacle: morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_Obstacle
 _morai_msgs_generate_messages_check_deps_Obstacle: morai_msgs/CMakeFiles/_morai_msgs_generate_messages_check_deps_Obstacle.dir/build.make

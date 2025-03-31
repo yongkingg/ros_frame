@@ -1,0 +1,2 @@
+set(GNNS_MESSAGE_FILES "")
+set(GNNS_SERVICE_FILES "")
