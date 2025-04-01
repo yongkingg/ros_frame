@@ -18,18 +18,21 @@ add_message_files(
 add_message_files(
   DIRECTORY Camera
   FILES
+  Camera.msg
 )
 
 #==================Lidar Custom Message==================#
 add_message_files(
   DIRECTORY Lidar
   FILES
+  Lidar.msg
 )
 
 #==================Planning Custom Message==================#
 add_message_files(
   DIRECTORY Planning
   FILES
+  Planning.msg
 )
 
 generate_messages(
