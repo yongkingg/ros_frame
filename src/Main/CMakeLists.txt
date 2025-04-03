@@ -34,6 +34,7 @@ add_library(myHeader
   src/Global/Global.cpp
   src/Parser/Parser.cpp
   src/Control/Control.cpp
+  src/Planning/Planning.cpp
 )
 
 target_link_libraries(myHeader ${catkin_LIBRARIES})
