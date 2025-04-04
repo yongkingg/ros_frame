@@ -22,10 +22,11 @@ typedef double float64;
 
 const double PI = 3.141592653589793;
 // ========================= Size ========================= // 
-const int32 c_PATHSIZE = 0;
-const int32 c_MAPSIZE = 0;
+const int32 c_MAPSIZE = 2462;
 const int32 c_MISSIONSIZE = 0;
-
+const int32 c_PATHSIZE = 2462;
+const int32 c_SAMPLEPOINTSIZE = 10;
+const int32 c_NODESIZE = c_PATHSIZE * c_SAMPLEPOINTSIZE;
 // ========================= Path ========================= // 
 const int32 c_GLOBALPATH = 0;
 const int32 c_LOCALPATH = 1;
@@ -41,6 +42,21 @@ struct Point3D
 	float32 f32_X;
 	float32 f32_Y;
 	float32 f32_Z;
+};
+
+
+template <int32 SIZE_1>
+struct PointSet_1D
+{
+    float32 arf32_Point[SIZE_1][1];
+    int32 s32_Size = SIZE_1;
+};
+
+template <int32 SIZE_2>
+struct PointSet_2D
+{
+    float32 arf32_Point[SIZE_2][2];
+    int32 s32_Size = SIZE_2;
 };
 
 struct GPSIMU
@@ -73,6 +89,13 @@ struct IdxSet
     std::pair<int32, int32> arp_Idx[c_MISSIONSIZE];
     int32 s32_SelectNumber;
     int32 s32_Num;
+};
+
+struct Frenet
+{
+    float32 arf32_S[c_PATHSIZE];
+    float32 arf32_D[c_PATHSIZE];
+    int32 s32_Size;
 };
 
 struct Planning
@@ -188,16 +211,61 @@ float32 CrossProduct(Point2D &st_RefPoint, Point2D &st_Point);
 
 
 // ==================================== LoadData ==================================== //
+string getCurrentDirectory();
 void LoadData(std::ifstream &st_LoadFile, Path &st_Path);
 // void LoadData(std::ifstream &st_LoadFile, HighWayPath &st_Path);
 void LoadData(std::ifstream &st_LoadFile, Map &st_Map);
 void LoadIdx(std::ifstream &st_LoadFile, IdxSet &st_IdxSet);
+
+template <int32 SIZE_1>
+void Load1DPoint(std::ifstream& st_LoadFile, PointSet_1D<SIZE_1>& st_PointSet)
+{
+    std::string s_FileLine = "";
+    int32 s32_Size = 0;
+    float32 f32_Value = 0.0f;
+
+    while (std::getline(st_LoadFile, s_FileLine) && s32_Size < SIZE_1)
+    {
+        std::istringstream st_Stream(s_FileLine);
+        st_Stream >> f32_Value;
+        st_PointSet.arf32_Point[s32_Size][0] = f32_Value;
+        s32_Size++;
+    }
+
+    st_PointSet.s32_Size = s32_Size;
+}
+
+template <int32 SIZE_2>
+void Load2DPoint(std::ifstream& st_LoadFile, PointSet_2D<SIZE_2>& st_PointSet)
+{
+    std::string s_FileLine = "";
+    int32 s32_Size = 0;
+    float32 f32_X = 0.0f, f32_Y = 0.0f;
+
+    while (std::getline(st_LoadFile, s_FileLine) && s32_Size < SIZE_2)
+    {
+        std::istringstream st_Stream(s_FileLine);
+        st_Stream >> f32_X >> f32_Y;
+        st_PointSet.arf32_Point[s32_Size][0] = f32_X;
+        st_PointSet.arf32_Point[s32_Size][1] = f32_Y;
+        s32_Size++;
+    }
+
+    st_PointSet.s32_Size = s32_Size;
+}
+
 // ==================================== LoadData ==================================== //
 
 
 // ==================================== RayCasting ==================================== //
 bool InOrOut(Planning &st_Planning, float32 f32_PointX, float32 f32_PointY);
 // ==================================== RayCasting ==================================== //
+
+// ==================================== FindNear ==================================== //
+int32 FindNear(PointSet_2D<c_NODESIZE> &points, Point2D &cur_pos);
+int32 FindNear(Planning &st_Planning, Point2D &st_Point2D, int32 s32_StartIdx, int32 s32_FindNearLen, int32 s32_PathType);
+int32 FindNear(Planning &st_Planning, float32 &f32_X, float32 &f32_Y, int32 s32_FindNearLen, int32 s32_PathType);
+// ==================================== FindNear ==================================== //
 
 
 #endif

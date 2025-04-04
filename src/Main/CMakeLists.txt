@@ -35,6 +35,7 @@ add_library(myHeader
   src/Parser/Parser.cpp
   src/Control/Control.cpp
   src/Planning/Planning.cpp
+  src/Planning/GPP.cpp
 )
 
 target_link_libraries(myHeader ${catkin_LIBRARIES})
@@ -45,3 +46,8 @@ target_link_libraries(main myHeader
   yaml-cpp
 )
 
+add_executable(gpp src/Planning/GPP.cpp)
+target_link_libraries(gpp myHeader
+  ${catkin_LIBRARIES}
+  yaml-cpp
+)

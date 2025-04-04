@@ -143,6 +143,16 @@ float32 CrossProduct(Point2D &st_RefPoint, Point2D &st_Point)
 
 
 // ==================================== LoadData ==================================== //
+string getCurrentDirectory() {
+    char buffer[PATH_MAX];
+    if (getcwd(buffer, sizeof(buffer)) != nullptr) {
+        return std::string(buffer); 
+    } else {
+        perror("getcwd"); 
+        return "";
+    }
+}
+
 void LoadData(std::ifstream &st_LoadFile, Path &st_Path)
 {
     std::string s_FileLine = "";
@@ -193,6 +203,7 @@ void LoadData(std::ifstream &st_LoadFile, Map &st_Map)
     st_Map.s32_Size = s32_Size;
     st_LoadFile.close();
 }
+
 void LoadIdx(std::ifstream &st_LoadFile, IdxSet &st_IdxSet)
 {
     std::string s_FileLine = "";
@@ -290,5 +301,21 @@ int32 FindNear(Planning &st_Planning, Point2D &st_Point2D, int32 s32_StartIdx, i
     }
 
     return s32_NearIdx = (s32_NearIdx + std::distance(arf_Dist, std::min_element(arf_Dist, arf_Dist + s32_FindNearLen))) % st_Path->s32_Size;
+}
+
+int32 FindNear(PointSet_2D<c_NODESIZE> &points, Point2D &cur_pos)
+{
+    float32 tmpDist = std::numeric_limits<float>::max();
+    int32 tmpIdx = -1;
+    for (int index = 0; index < points.s32_Size; index++)
+    {
+        float32 dist = sqrt(pow(cur_pos.f32_X - points.arf32_Point[index][0], 2) + pow(cur_pos.f32_Y - points.arf32_Point[index][1], 2));
+        if (dist < tmpDist)
+        {
+            tmpDist = dist;
+            tmpIdx = index;
+        }
+    }
+    return tmpIdx;
 }
 // ==================================== FindNear ==================================== //
